@@ -1,0 +1,44 @@
+.banner {
+  background: linear-gradient(90deg, #8b2fe6 0%, #c233f3 100%);
+  color: white;
+  padding: 12px 24px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1005;
+  transform: translateY(-100%);
+  animation: slideDown 0.3s forwards;
+}
+
+@keyframes slideDown {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.text {
+  text-align: center;
+  font-size: 14px;
+}
+
+.highlight {
+  font-weight: 600;
+}
+
+.closeButton {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

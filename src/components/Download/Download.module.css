@@ -1,0 +1,130 @@
+.Download {
+  background: linear-gradient(to right, #7f368c, #4b3d88);
+  color: white;
+  padding: 4rem 0;
+}
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  gap: 3.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.image img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Center the image */
+}
+
+.Downloadtext {
+  color: #f4af47;
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 3rem;
+  font-family: sans-serif;
+}
+
+.Appcontainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.Playstore img {
+  width: 150px;
+}
+
+.Appstore img {
+  width: 150px;
+}
+
+.description {
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-family: sans-serif;
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 1.5rem;
+  }
+
+  .image img {
+    max-width: 250px;
+    margin: 0 auto; /* Center the image */
+  }
+
+  .Downloadtext {
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  .description {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .Appcontainer {
+    justify-content: flex-start; /* Keep buttons left-aligned */
+  }
+
+  br {
+    display: none; /* Hide line breaks on tablet and smaller screens */
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .Download {
+    padding: 3rem 1rem;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .image img {
+    max-width: 300px;
+    margin: 0 auto; /* Center the image */
+  }
+
+  .Downloadtext {
+    font-size: 1.8rem;
+    text-align: left;
+    white-space: normal; /* Allow text wrapping without breaks */
+  }
+
+  .description {
+    font-size: 0.9rem;
+    text-align: left;
+    white-space: normal; /* Allow text wrapping without breaks */
+  }
+
+  .Playstore img,
+  .Appstore img {
+    width: 300px;
+  }
+
+  .Appcontainer {
+    flex-direction: column; /* Stack the buttons vertically */
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  br {
+    display: none; /* Hide line breaks on mobile screens */
+  }
+}

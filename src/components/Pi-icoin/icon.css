@@ -1,0 +1,41 @@
+.icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid #673ab7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  margin: 0 1rem;
+  padding: 8px;
+}
+
+.icon-wrapper img {
+  width: 50px;
+  height: auto;
+  color: #673ab7;
+}
+
+.icon-wrapper:hover {
+  transform: scale(0.95);
+}
+
+/* Hide inner border by default */
+.icon-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Show inner border only on hover */
+.icon-wrapper:hover::before {
+  border-color: #673ab7;
+}

@@ -1,0 +1,367 @@
+.scrolled {
+  background-color: #593a8a !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.headerWithBanner {
+  transform: translateY(40px);
+}
+.scrolled.headerNoAnnouncement {
+  transform: translateY(0);
+}
+.headerNoAnnouncement {
+  transform: translateY(0);
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1001;
+}
+.logoImage {
+  width: 200px;
+}
+/* Add mobile styles */
+@media (max-width: 768px) {
+  .logoImage {
+    width: 150px; /* Smaller size for mobile */
+  }
+}
+/* desktop navigation */
+.desktopNav {
+  display: none;
+}
+.navlist {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navItem {
+  position: relative;
+}
+.navButton {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.chevron {
+  width: 16px;
+  height: 16px;
+}
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  padding: 0.5rem 0;
+}
+.dropdownItem {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.dropdownItem::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  bottom: 8px;
+  width: 0;
+  height: 1px;
+  background-color: #333;
+  transition: width 0.3s ease;
+}
+.dropdownItem:hover::after {
+  width: calc(100% - 2rem); /* Subtracting left and right padding */
+}
+/* .dropdownItem:hover {
+  background-color: #f5f5f5;
+} */
+.socialIcons {
+  display: none;
+}
+
+.socialIcon {
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.socialIcon:hover {
+  color: #ffd700; /* Yellow color on hover */
+  transform: translateY(-2px); /* Slight upward movement */
+}
+
+.mobileMenuButton {
+  display: block;
+  background: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 24px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburgerIcon,
+.hamburgerIcon::before,
+.hamburgerIcon::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+.hamburgerIcon {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hamburgerIcon::before {
+  top: -8px;
+}
+.hamburgerIcon::after {
+  bottom: -8px;
+}
+.mobileMenuButton.isActive .hamburgerIcon {
+  background-color: transparent;
+}
+
+.mobileMenuButton.isActive .hamburgerIcon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.mobileMenuButton.isActive .hamburgerIcon::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+/* Mobile Menu Overlay */
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(74, 43, 130, 0.9);
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.mobileNav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.mobileNavList {
+  list-style: none;
+  margin: 0;
+  padding-top: 10rem;
+}
+
+.mobileNavItem {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideUpFade 0.3s ease forwards;
+  position: relative;
+  z-index: 2;
+}
+
+.mobileNavItem:hover {
+  z-index: 1003;
+}
+
+.mobileNavButton {
+  width: 100%;
+  text-align: left;
+  padding: 1rem 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.mobileDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 4px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1002;
+}
+
+.mobileDropdownItem {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUpFade 0.3s ease forwards;
+}
+.mobileDropdownItem::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  bottom: 8px;
+  width: 0;
+  height: 1px;
+  background-color: #333;
+  transition: width 0.3s ease;
+}
+.mobileDropdownItem:hover::after {
+  width: calc(100% - 2rem);
+}
+/* .mobileDropdownItem:hover {
+  background-color: #f5f5f5;
+} */
+
+.mobileSocialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.5s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.mobileSocialIcon {
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.mobileSocialIcon:hover {
+  color: #ffd700; /* Yellow color on hover */
+  transform: translateY(-2px); /* Slight upward movement */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 768px) {
+  .mobileMenuButton {
+    display: none;
+  }
+
+  .desktopNav {
+    display: block;
+  }
+
+  .socialIcons {
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
+.chevronRotate {
+  transform: rotate(180deg);
+}
+
+.mobileNavButton .chevron {
+  transition: transform 0.3s ease;
+}
+
+/* Add staggered delay for each nav item */
+.mobileNavItem:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.mobileNavItem:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.mobileNavItem:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.mobileNavItem:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.mobileNavItem:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.menuIcon {
+  color: white;
+}
+
+.closeIcon {
+  color: white;
+}

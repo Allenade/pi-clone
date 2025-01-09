@@ -1,0 +1,298 @@
+.hero {
+  min-height: 100vh;
+  background-image: url("https://www.coreteams.net/_next/image?url=%2Fimages%2Fbg4-1-scaled.jpg&w=3840&q=75");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 20px; /* Account for navbar */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(74, 43, 130, 0.85); /* Dark purple overlay */
+  z-index: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  z-index: 2; /* Keep content above overlay */
+}
+
+.content {
+  text-align: center;
+  max-width: 800px;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.validateButton,
+.exchangeButton {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.validateButton {
+  background: transparent;
+  border: 2px solid #ffd700;
+  color: #ffd700;
+}
+
+.validateButton:hover {
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.exchangeButton {
+  background: #78398c;
+  border: none;
+  color: white;
+}
+
+.exchangeButton:hover {
+  background: #78398c;
+}
+
+.downloadIcon,
+.arrowIcon {
+  font-size: 1.25rem;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 2rem;
+}
+
+.phoneImage {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+}
+
+.playButton {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a2b82;
+  transition: left 0.1s ease, top 0.1s ease; /* Smooth movement */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.playButton:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: white;
+}
+
+/* Add hover effect for the image wrapper */
+.imageWrapper:hover .playButton {
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+  }
+
+  .content {
+    text-align: left;
+    flex: 1;
+  }
+
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .buttons {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+
+  .imageWrapper {
+    flex: 1;
+    margin-top: 0;
+  }
+}
+
+.videoModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.videoWrapper {
+  width: 90%;
+  max-width: 900px;
+  aspect-ratio: 16/9;
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.closeButton {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+  transition: transform 0.2s ease;
+}
+
+.closeButton:hover {
+  transform: scale(1.1);
+}
+
+.youtubePreview {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: #000; /* Dark background for letterboxing */
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transform: scale(1.1); /* Slightly zoom in to hide YouTube player edges */
+}
+
+.playOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .phoneImage {
+    display: none;
+  }
+
+  .playButton {
+    display: none;
+  }
+
+  .imageWrapper {
+    background: none;
+    margin: 0 auto;
+    max-width: 80%;
+  }
+
+  .youtubePreview {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .thumbnailImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .playOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 48px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  }
+
+  .videoWrapper {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  .closeButton {
+    top: -35px;
+  }
+}

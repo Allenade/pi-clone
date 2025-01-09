@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Pi Blockchain",
+    "hasDropdown": true,
+    "dropdownItems": ["Pi Node", "Pi BlockExplorer", "Pi Whitepaper"]
+  },
+  {
+    "title": "Developers",
+    "hasDropdown": true,
+    "dropdownItems": ["Documentation", "API", "Resources"]
+  },
+  {
+    "title": "About Us",
+    "hasDropdown": false
+  },
+  {
+    "title": "Blog",
+    "hasDropdown": false
+  },
+  {
+    "title": "Support",
+    "hasDropdown": false
+  }
+]

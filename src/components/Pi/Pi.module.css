@@ -1,0 +1,127 @@
+.pi {
+  background-color: #fff;
+  padding: 4rem 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.title {
+  color: #78398c;
+  line-height: 1.2;
+  font-size: 2.7rem;
+  letter-spacing: 0.1rem;
+  font-weight: 500;
+}
+
+.description {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.PiButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.8rem;
+  padding: 0.5rem 2rem;
+  min-width: 200px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: white;
+  background: #8a348e;
+  border: 2px solid #78398c;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.arrowIcon {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+  margin-left: auto;
+}
+
+.imageWrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem auto;
+  position: relative;
+  overflow: visible;
+}
+
+.phoneImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.overlayImage {
+  position: absolute;
+  top: -30%; /* Adjust to position the overlay relative to the phone image */
+  left: 4%;
+  width: 90%;
+  height: 120%;
+  z-index: 2;
+  transform: translateY(0); /* Initial transform */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.5s ease-out, transform 0.3s ease-out;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+    padding: 0 6rem;
+  }
+
+  .imageWrapper {
+    flex: 0 0 350px;
+    margin: 0;
+    order: 2;
+    padding-right: 2rem;
+  }
+
+  .content {
+    flex: 1;
+    text-align: left;
+    margin: 0;
+    padding-left: 2rem;
+  }
+}
