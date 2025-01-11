@@ -53,6 +53,8 @@ const Layout = () => {
   const [isBannerDismissed, setIsBannerDismissed] = useState(false);
 
   const shouldShowBanner = location.pathname !== "/pi/validate";
+  const isAnnouncementVisible =
+    shouldShowBanner && isBannerVisible && !isBannerDismissed;
 
   useEffect(() => {
     if (isBannerDismissed || !shouldShowBanner) return;
@@ -81,10 +83,10 @@ const Layout = () => {
 
   return (
     <>
-      {shouldShowBanner && isBannerVisible && !isBannerDismissed && (
+      {isAnnouncementVisible && (
         <AnnouncementBanner onClose={handleCloseBanner} />
       )}
-      <Navbar />
+      <Navbar isAnnouncementVisible={isAnnouncementVisible} />
       <Outlet />
       <Footer />
       <BottomBanner />
